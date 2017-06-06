@@ -18,7 +18,6 @@ Paddle.PADDLE_HEIGHT = 125;
 Paddle.PADDLE_SPEED = 15;
 
 Paddle.prototype.update = function() {
-  //this.component.update();
   if (this.component.y > 0 && this.component.y < 800 - 125) {
     this.component.update();
   } else if (this.component.y < 0 ) {
@@ -34,7 +33,6 @@ Paddle.prototype.draw = function(context) {
 
 Paddle.prototype.__setupArrowBindings = function() {
   document.addEventListener("keydown", function(event) {
-    // aici cred ca trebuie pusa conditie de oprit paleta cand mergi in jos
     if (event.which === this.upKeyCode) {
       this.keyDown = this.upKeyCode;
       this.component.velocity = this.velocityUp;
