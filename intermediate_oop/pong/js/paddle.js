@@ -1,3 +1,5 @@
+//Paddle - An object on the page that can move up and down only. Responds to keys to move up and down. Checks for collisions with a ball.
+
 function Paddle(x, y, paddleSpeed, paddleWidth, paddleHeight, humanControllable=false) {
   this.velocityUp = new Velocity(0, paddleSpeed * -1);
   this.velocityDown = new Velocity(0, paddleSpeed);
@@ -16,15 +18,23 @@ Paddle.PADDLE_HEIGHT = 125;
 Paddle.PADDLE_SPEED = 15;
 
 Paddle.prototype.update = function() {
-  this.component.update();
-}; 
+  //this.component.update();
+  if (this.component.y > 0 && this.component.y < 800 - 125) {
+    this.component.update();
+  } else if (this.component.y < 0 ) {
+    this.component.y = 5;
+  } else {
+    this.component.y = 800 - 130;
+  }
+};
 
 Paddle.prototype.draw = function(context) {
   this.component.draw(context);
 };
 
 Paddle.prototype.__setupArrowBindings = function() {
- document.addEventListener("keydown", function(event) {
+  document.addEventListener("keydown", function(event) {
+    // aici cred ca trebuie pusa conditie de oprit paleta cand mergi in jos
     if (event.which === this.upKeyCode) {
       this.keyDown = this.upKeyCode;
       this.component.velocity = this.velocityUp;
