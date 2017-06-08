@@ -11,10 +11,10 @@ Player.O = 'O';
 // let playerX = new Player('x',true);
 // let playerY = new Player('y',false);
 
-Player.prototype.changeTurn = function(){
-  if ( this.isTurn === true) {
-    this.isTurn = false;
-  } else {
-    this.isTurn = true;
-  }
-}
+// Player.prototype.changeTurn = function(){
+//   if ( this.isTurn === true) {
+//     this.isTurn = false;
+//   } else {
+//     this.isTurn = true;
+//   }
+// }

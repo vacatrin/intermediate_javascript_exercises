@@ -1,16 +1,19 @@
 'use strict'
 function Cell(dom) {
   this.dom = dom;
+  this.coordinates= this.dom.split('_');  
+  // this.x = this.coordinates[1];
+  // this.y = this.coordinates[2];
   this.state = Cell.EMPTY;
   //sa sterg innerHTML la ''
   document.querySelectorAll(".square").forEach(function(square) {
-    square.innerHTML = "";
+    square.innerHTML = Cell.EMPTY;
   });
 }
 
-Cell.EMPTY = 0;
-Cell.X = 1;
-Cell.O = 2;
+Cell.EMPTY = '';
+Cell.X = 'X';
+Cell.O = 'O';
 
 Cell.prototype.show = function() {
   let div = document.getElementById(this.dom);
